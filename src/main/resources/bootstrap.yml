@@ -2,7 +2,7 @@ spring:
   application:
     name: "config-client"
   profiles:
-    active: local
+    active: uat
 management:
   endpoints:
     web:
@@ -13,9 +13,14 @@ spring:
   profiles: local
   cloud:
     config:
+      enabled: false
+
+---
+spring:
+  profiles: dev
+  cloud:
+    config:
       enabled: true
       uri: "http://localhost:8888"
       username: root
       password: s3cr3t
-
-
